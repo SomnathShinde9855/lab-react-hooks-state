@@ -1,4 +1,5 @@
 import React from 'react'
+import { describe, expect, jest, test } from '@jest/globals'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import ProductCard from '../components/ProductCard'
