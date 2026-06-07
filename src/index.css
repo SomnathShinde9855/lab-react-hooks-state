@@ -25,14 +25,36 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f8fafc;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.app {
+  width: min(100%, 980px);
+  padding: 2rem;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.app.dark {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.filter-row {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
 }
 
 button {
@@ -43,8 +65,9 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: #ffffff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s, color 0.25s;
 }
 button:hover {
   border-color: #646cff;
@@ -52,6 +75,17 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.app.dark button {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.app.dark select {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
 }
 
 @media (prefers-color-scheme: light) {
@@ -63,6 +97,7 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #0f172a;
+    color: #ffffff;
   }
 }

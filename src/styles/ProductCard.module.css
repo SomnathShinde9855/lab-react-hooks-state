@@ -1,5 +1,27 @@
-/* TODO (optional): Style the product card container */
+.card {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 320px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
 
-/* TODO (optional): Add special styling for out-of-stock products */
+.outOfStock {
+  opacity: 0.7;
+}
 
-/* TODO (optional): Style the add/remove button */
+.card button {
+  margin-top: 0.75rem;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  opacity: 0.92;
+}
