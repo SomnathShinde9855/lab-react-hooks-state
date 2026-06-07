@@ -1,5 +1,5 @@
 import React from 'react'
-import { describe, expect, jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import ProductCard from '../components/ProductCard'
@@ -14,7 +14,7 @@ describe('ProductCard', () => {
   }
 
   test('renders product name, price, and availability status', () => {
-    render(<ProductCard product={product} onAddToCart={jest.fn()} />)
+    render(<ProductCard product={product} onAddToCart={vi.fn()} />)
 
     expect(screen.getByText(/Apple/i)).toBeInTheDocument()
     expect(screen.getByText(/Price: \$1.00/i)).toBeInTheDocument()
@@ -23,7 +23,7 @@ describe('ProductCard', () => {
   })
 
   test('calls onAddToCart with the product when button is clicked', () => {
-    const handleAddToCart = jest.fn()
+    const handleAddToCart = vi.fn()
 
     render(<ProductCard product={product} onAddToCart={handleAddToCart} />)
 
@@ -37,7 +37,7 @@ describe('ProductCard', () => {
     const outOfStockProduct = { ...product, inStock: false }
 
     const { container } = render(
-      <ProductCard product={outOfStockProduct} onAddToCart={jest.fn()} />
+      <ProductCard product={outOfStockProduct} onAddToCart={vi.fn()} />
     )
 
     expect(screen.getByText(/Status: Out of Stock/i)).toBeInTheDocument()
@@ -47,7 +47,7 @@ describe('ProductCard', () => {
 
   test('does not apply out-of-stock styling when product is in stock', () => {
     const { container } = render(
-      <ProductCard product={product} onAddToCart={jest.fn()} />
+      <ProductCard product={product} onAddToCart={vi.fn()} />
     )
 
     expect(container.firstChild).toHaveClass(styles.card)
