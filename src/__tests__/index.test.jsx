@@ -1,9 +1,10 @@
 import React from 'react'
-import { expect, test } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { afterEach, expect, test } from 'vitest'
+import { cleanup, render, screen, fireEvent } from '@testing-library/react'
+import matchers from '@testing-library/jest-dom/matchers'
+expect.extend(matchers)
 import App from '../App'
 import { sampleProducts } from '../components/ProductList'
-import '@testing-library/jest-dom'
 
 test('toggles dark mode on button click', () => {
   render(<App />)
@@ -49,3 +50,5 @@ test('adds items to cart', () => {
   expect(screen.getByText(/shopping cart/i)).toBeInTheDocument()
   expect(screen.getByText(/Milk is in your cart/i)).toBeInTheDocument()
 })
+
+afterEach(() => cleanup())

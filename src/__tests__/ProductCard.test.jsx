@@ -1,7 +1,8 @@
 import React from 'react'
-import { describe, expect, test, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { afterEach, describe, expect, test, vi } from 'vitest'
+import { cleanup, render, screen, fireEvent } from '@testing-library/react'
+import matchers from '@testing-library/jest-dom/matchers'
+expect.extend(matchers)
 import ProductCard from '../components/ProductCard'
 import styles from '../styles/ProductCard.module.css'
 
@@ -12,6 +13,8 @@ describe('ProductCard', () => {
     price: '$1.00',
     inStock: true
   }
+
+  afterEach(() => cleanup())
 
   test('renders product name, price, and availability status', () => {
     render(<ProductCard product={product} onAddToCart={vi.fn()} />)
